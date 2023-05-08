@@ -21,6 +21,9 @@ def cesar(direction:str, message:str,num_of_shifts:int)->str:
                 all_indexes += alphabet_index_letter
                 if all_indexes - num_of_shifts < len(alphabet):
                     message_list.append(alphabet[alphabet_index_letter - num_of_shifts])
+        else:
+            print("Not Found, error")
+            return main()
     user_word = "".join(message_list)
     return user_word
 print(logo.logo)
@@ -37,6 +40,7 @@ def main():
     if shift > len(alphabet) // 2:
         print("Not enough letters")
         main()
+
     message = cesar(direction,text,shift)
     print(f"Your message: {message}")
     user_answer = input("You want to restart? Y or N: ")
